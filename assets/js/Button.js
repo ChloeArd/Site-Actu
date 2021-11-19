@@ -59,12 +59,6 @@ export const Button = function () {
 
             if (valueAuthor !== "" && valueTitle !== "" && valueImage !== "" && valueContent !== "") {
                 if (isWebUri(valueImage)) {
-                    console.log(valueAuthor);
-                    console.log(valueTitle);
-                    console.log(valueImage);
-                    console.log(valueContent);
-                    console.log(dateNow1);
-
                     let addArticle = new AddArticle(valueAuthor, valueTitle, valueImage, valueContent, dateNow1);
                     addArticle.addArticle();
 
