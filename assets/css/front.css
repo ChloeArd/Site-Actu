@@ -79,6 +79,10 @@ button:hover {
     flex-direction: row;
 }
 
+.containerArt:hover {
+    box-shadow: 5px 5px 10px gray;
+}
+
 #containerArticle {
     width: 80%;
     margin: 20px auto;
@@ -106,9 +110,14 @@ img {
     border-radius: 10px;
 }
 
-
 h1 {
     margin: 20px 0;
     color: black;
     font-size: 30px;
+}
+
+.content {
+    color: gray;
+    font-size: 20px;
+    margin-bottom: 20px;
 }

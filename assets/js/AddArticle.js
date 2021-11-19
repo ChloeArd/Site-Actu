@@ -27,13 +27,18 @@ export const AddArticle = function (author, title, image, content, date) {
 
         // create a author
         let author = document.createElement("p");
-        author.innerHTML = this.author;
+        author.innerHTML = this.author + " - " + this.date;
         author.classList = "author";
         containerInfo.append(author);
 
         let title = document.createElement("h1");
         title.innerHTML = this.title;
         containerInfo.append(title);
+
+        let content = document.createElement("p");
+        content.innerHTML = this.content;
+        content.classList = "content";
+        containerInfo.append(content);
 
         // contains image
         let containerImage = document.createElement("div");
