@@ -11,7 +11,7 @@ export const Button = function (theme_dark, theme) {
     this.mode = function () {
         let mode = document.createElement("button");
         mode.id = "modeNight";
-        mode.classList = "button";
+        mode.classList = "button ";
         mode.innerHTML = "<i class=\"fas fa-moon\"></i>";
         document.getElementById("containerButton").appendChild(mode);
 
@@ -65,7 +65,7 @@ export const Button = function (theme_dark, theme) {
     this.add = function () {
         let add = document.createElement("button");
         add.id = "addInput"
-        add.classList = "button";
+        add.classList = "button ";
         add.innerHTML = "<i class=\"fas fa-plus\"></i>";
         document.getElementById("containerButton").appendChild(add);
 
@@ -93,7 +93,7 @@ export const Button = function (theme_dark, theme) {
     this.addArt = function () {
         let add = document.createElement("button");
         add.id = "addArticle"
-        add.classList = "button";
+        add.classList = "button ";
         add.innerHTML = "Ajouter";
         document.getElementById("containerAdd").appendChild(add);
 
