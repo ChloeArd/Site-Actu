@@ -1,7 +1,7 @@
 
-/*créer un article a l'aide d'une api voir dans moodle*/
+/* créer un article a l'aide d'une api voir dans moodle*/
 
-export let tableArticle = [];
+let x = 0;
 
 export const AddArticle = function (author, title, image, content, date) {
     this.author = author;
@@ -13,11 +13,11 @@ export const AddArticle = function (author, title, image, content, date) {
     // display a input for add a article
     this.addArticle = function () {
         let container = document.getElementById("containerArticle");
-        let x = tableArticle.length;
 
         // a article
         let containerArt = document.createElement("div");
         containerArt.classList = "containerArt";
+        containerArt.id = "containerArt" + x;
         document.getElementById("containerArticle").prepend(containerArt);
 
         // contains the information
@@ -33,6 +33,7 @@ export const AddArticle = function (author, title, image, content, date) {
 
         let title = document.createElement("h1");
         title.innerHTML = this.title;
+        title.id = "title";
         containerInfo.append(title);
 
         let content = document.createElement("p");
@@ -51,5 +52,15 @@ export const AddArticle = function (author, title, image, content, date) {
         image.alt = this.title;
         containerImage.append(image);
 
+        let idClick = document.getElementById("containerArt" + x);
+        idClick.addEventListener("click", function () {
+            // Faire que la ou je clique prenne tous l'ecran grace a un absolute et cache les autre articles en prenant toutes la page
+
+            idClick.classList = "containerArt absolute";
+
+            alert("Tu as cliqué sur un article");
+        });
+
+        x++;
     };
 }
