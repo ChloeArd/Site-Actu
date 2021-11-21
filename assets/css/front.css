@@ -64,11 +64,6 @@ button:hover {
     justify-content: center;
 }
 
-#addArticle {
-    color: white;
-    width: initial;
-}
-
 .containerArt {
     border-radius: 10px;
     border: 1px solid #e0e0e0;
@@ -169,6 +164,6 @@ body.dark-theme {
 
 @media screen and (max-width: 430px) {
     img {
-        width: 50%;
+        width: 80%;
     }
 }

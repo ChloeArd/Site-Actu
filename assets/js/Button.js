@@ -1,7 +1,6 @@
 import '@fortawesome/fontawesome-free/js/all.js';
 import {AddInputs} from "./AddInputs";
 import {AddArticle} from "./AddArticle";
-import { isWebUri } from 'valid-url';
 
 export const Button = function (theme_dark, theme) {
     this.themeDark = theme_dark;
@@ -16,12 +15,10 @@ export const Button = function (theme_dark, theme) {
         document.getElementById("containerButton").appendChild(mode);
 
         let modeNight = document.getElementById("modeNight");
-        let addInput = document.getElementById("addInput");
 
         if (theme === theme_dark) {
             modeNight.innerHTML = "<i class=\"fas fa-sun\"></i>";
             modeNight.classList += theme_dark;
-            addInput.classList += theme_dark;
             document.body.classList += theme_dark;
             if (document.getElementById("title")) {
                 document.getElementById("title").classList = theme_dark;
@@ -30,19 +27,18 @@ export const Button = function (theme_dark, theme) {
         else {
             modeNight.innerHTML = "<i class=\"fas fa-moon\"></i>";
             modeNight.classList = "button ";
-            addInput.classList = "button ";
             document.body.classList = "";
             if (document.getElementById("title")) {
                 document.getElementById("title").classList = "";
             }
         }
 
+        // When we click the theme changes
         modeNight.addEventListener("click", function () {
             if (getCookie("theme") === theme_dark) {
                 setCookie('theme', 'light');
                 modeNight.innerHTML = "<i class=\"fas fa-moon\"></i>";
                 modeNight.classList = "button ";
-                addInput.classList = "button ";
                 document.body.classList = "";
                 if (document.getElementById("title")) {
                     document.getElementById("title").classList = "";
@@ -52,7 +48,6 @@ export const Button = function (theme_dark, theme) {
                 setCookie('theme', 'dark-theme');
                 modeNight.innerHTML = "<i class=\"fas fa-sun\"></i>";
                 modeNight.classList += theme_dark;
-                addInput.classList += theme_dark;
                 document.body.classList += theme_dark;
                 if (document.getElementById("title")) {
                     document.getElementById("title").classList = theme_dark;
@@ -90,6 +85,7 @@ export const Button = function (theme_dark, theme) {
         });
     };
 
+    // displays 20 articles of a API
     this.articles = function () {
         let url = "http://api.mediastack.com/v1/news?access_key=6686f18aa11ae791d64637c0b67123f1&languages=fr";
         let xhr = new XMLHttpRequest();
@@ -103,13 +99,11 @@ export const Button = function (theme_dark, theme) {
                 addArticle.addArticle();
             }
         }
-
         xhr.send();
     }
 }
 
-
-
+// create a cookie
 function setCookie(name, value) {
     let d = new Date();
     d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
@@ -117,14 +111,13 @@ function setCookie(name, value) {
     document.cookie = name + "=" + value + ";" + expires + ";path=/";
 }
 
-export function getCookie(cname) {
-
-    let theme = cname + "=";
+// get the cookie
+export function getCookie(name) {
+    let theme = name + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
 
     for(let i = 0; i < ca.length; i++) {
-
         let c = ca[i];
         while (c.charAt(0) == ' ') {
             c = c.substring(1);

@@ -7,6 +7,5 @@ let theme = getCookie('theme');
 
 let button = new Button(dark_theme_class, theme);
 
-button.add();
 button.mode();
 button.articles();
