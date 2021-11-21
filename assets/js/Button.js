@@ -90,41 +90,21 @@ export const Button = function (theme_dark, theme) {
         });
     };
 
-    this.addArt = function () {
-        let add = document.createElement("button");
-        add.id = "addArticle"
-        add.classList = "button ";
-        add.innerHTML = "Ajouter";
-        document.getElementById("containerAdd").appendChild(add);
+    this.articles = function () {
+        let url = "http://api.mediastack.com/v1/news?access_key=6686f18aa11ae791d64637c0b67123f1&languages=fr";
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url)
+        xhr.responseType = "json";
 
-        document.getElementById("addArticle").addEventListener("click", function () {
-            let valueAuthor = document.getElementById("inputAuthor").value;
-            let valueTitle = document.getElementById("inputTitle").value;
-            let valueImage = document.getElementById("inputImage").value;
-            let valueContent = document.getElementById("textareaContent").value;
-
-            // get the date
-            let dateNow = new Date();
-            let dateNow1 = dateNow.toLocaleDateString();
-
-            if (valueAuthor !== "" && valueTitle !== "" && valueImage !== "" && valueContent !== "") {
-                if (isWebUri(valueImage)) {
-                    let addArticle = new AddArticle(valueAuthor, valueTitle, valueImage, valueContent, dateNow1);
-                    addArticle.addArticle();
-
-                    document.getElementById("inputAuthor").value = "";
-                    document.getElementById("inputTitle").value = "";
-                    document.getElementById("inputImage").value = "";
-                    document.getElementById("textareaContent").value = "";
-                }
-                else {
-                    alert("L'URL de l'image est invalide !");
-                }
+        xhr.onload = function () {
+            let response = xhr.response;
+            for (let i = 0; i < 20; i++) {
+                let addArticle = new AddArticle(response['data'][i]['author'], response['data'][i]['title'], response['data'][i]['image'], response['data'][i]['description'], response['data'][i]['published_at']);
+                addArticle.addArticle();
             }
-            else {
-                alert("Tous les champs ne sont pas complétés !");
-            }
-        })
+        }
+
+        xhr.send();
     }
 }
 

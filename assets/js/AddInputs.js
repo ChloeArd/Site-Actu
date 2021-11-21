@@ -36,6 +36,6 @@ export const AddInputs = function () {
 
         // button add a article
         let button = new Button();
-        button.addArt();
+        button.articles();
     };
 }
