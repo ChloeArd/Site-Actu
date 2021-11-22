@@ -184,4 +184,8 @@ h1.title.dark-theme{
     img {
         width: 80%;
     }
+    body{
+        width: 90%;
+        margin: 0;
+    }
 }

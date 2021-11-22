@@ -1,10 +1,10 @@
 import '@fortawesome/fontawesome-free/js/all.js';
 import {AddInputs} from "./AddInputs";
 import {AddArticle} from "./AddArticle";
+import {setCookie, getCookie} from "./function";
 
 export const Button = function (theme_dark, theme) {
     this.themeDark = theme_dark;
-
 
     // display a input for add a article
     this.mode = function () {
@@ -45,9 +45,7 @@ export const Button = function (theme_dark, theme) {
                 modeNight.classList = "button ";
                 document.body.classList = "";
                 for (let i = 0; i < 20; i++) {
-                    if (document.getElementById("title" + i)) {
-                        document.getElementById("title" + i).classList = "title ";
-                    }
+                    document.getElementById("title" + i).classList = "title ";
                     if (document.getElementById("containerArt" + i).classList['value'] === "containerArt absolute flexColumnR black"){
                         document.getElementById("containerArt" + i).classList = "containerArt absolute flexColumnR";
                     }
@@ -59,10 +57,7 @@ export const Button = function (theme_dark, theme) {
                 modeNight.classList += theme_dark;
                 document.body.classList += theme_dark;
                 for (let i = 0; i < 20; i++) {
-                    if (document.getElementById("title" + i)) {
-                        document.getElementById("title" + i).classList = "title " + theme_dark;
-                    }
-                    console.log(document.getElementById("containerArt" + i).classList['value']);
+                    document.getElementById("title" + i).classList = "title " + theme_dark;
                     if (document.getElementById("containerArt" + i).classList['value'] === "containerArt absolute flexColumnR"){
                         document.getElementById("containerArt" + i).classList = "containerArt absolute flexColumnR black";
                     }
@@ -116,31 +111,4 @@ export const Button = function (theme_dark, theme) {
         }
         xhr.send();
     }
-}
-
-// create a cookie
-function setCookie(name, value) {
-    let d = new Date();
-    d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-// get the cookie
-export function getCookie(name) {
-    let theme = name + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-
-    for(let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-
-        if (c.indexOf(theme) == 0) {
-            return c.substring(theme.length, c.length);
-        }
-    }
-    return "";
 }

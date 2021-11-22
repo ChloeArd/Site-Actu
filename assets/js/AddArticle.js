@@ -1,4 +1,4 @@
-import {getCookie} from "./Button";
+import {getCookie} from "./function";
 import {modeArticleFullPage} from "./function";
 
 let x = 0;
