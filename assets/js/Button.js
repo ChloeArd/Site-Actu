@@ -20,16 +20,20 @@ export const Button = function (theme_dark, theme) {
             modeNight.innerHTML = "<i class=\"fas fa-sun\"></i>";
             modeNight.classList += theme_dark;
             document.body.classList += theme_dark;
-            if (document.getElementById("title")) {
-                document.getElementById("title").classList = theme_dark;
+            for (let i = 0; i < 20; i++) {
+                if (document.getElementById("title" + i)) {
+                    document.getElementById("title" + i).classList = "title " + theme_dark;
+                }
             }
         }
         else {
             modeNight.innerHTML = "<i class=\"fas fa-moon\"></i>";
             modeNight.classList = "button ";
             document.body.classList = "";
-            if (document.getElementById("title")) {
-                document.getElementById("title").classList = "";
+            for (let i = 0; i < 20; i++) {
+                if (document.getElementById("title" + i)) {
+                    document.getElementById("title" + i).classList = "title ";
+                }
             }
         }
 
@@ -40,8 +44,10 @@ export const Button = function (theme_dark, theme) {
                 modeNight.innerHTML = "<i class=\"fas fa-moon\"></i>";
                 modeNight.classList = "button ";
                 document.body.classList = "";
-                if (document.getElementById("title")) {
-                    document.getElementById("title").classList = "";
+                for (let i = 0; i < 20; i++) {
+                    if (document.getElementById("title" + i)) {
+                        document.getElementById("title" + i).classList = "title ";
+                    }
                 }
             }
             else {
@@ -49,8 +55,10 @@ export const Button = function (theme_dark, theme) {
                 modeNight.innerHTML = "<i class=\"fas fa-sun\"></i>";
                 modeNight.classList += theme_dark;
                 document.body.classList += theme_dark;
-                if (document.getElementById("title")) {
-                    document.getElementById("title").classList = theme_dark;
+                for (let i = 0; i < 20; i++) {
+                    if (document.getElementById("title" + i)) {
+                        document.getElementById("title" + i).classList = "title " + theme_dark;
+                    }
                 }
             }
         });
@@ -95,7 +103,7 @@ export const Button = function (theme_dark, theme) {
         xhr.onload = function () {
             let response = xhr.response;
             for (let i = 0; i < 20; i++) {
-                let addArticle = new AddArticle(response['data'][i]['author'], response['data'][i]['title'], response['data'][i]['image'], response['data'][i]['description'], response['data'][i]['published_at']);
+                let addArticle = new AddArticle(response['data'][i]['author'], response['data'][i]['title'], response['data'][i]['image'], response['data'][i]['description'], response['data'][i]['published_at'], theme_dark);
                 addArticle.addArticle();
             }
         }

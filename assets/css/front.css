@@ -127,6 +127,10 @@ h1 {
     z-index : 2;
 }
 
+.black {
+    background-color: black;
+}
+
 .flexColumnR {
     display: flex;
     flex-direction: column-reverse;
@@ -141,7 +145,7 @@ body.dark-theme {
     color: white;
 }
 
-#title.dark-theme{
+h1.title.dark-theme{
     color: white;
 }
 
