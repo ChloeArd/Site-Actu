@@ -121,7 +121,7 @@ h1 {
 
 .absolute {
     margin: 0;
-    width: 100%;
+    width: 70%;
     top: 100px;
     position : absolute;
     background-color: white;
@@ -188,5 +188,8 @@ h1.title.dark-theme{
     body {
         width: 90%;
         margin: 0;
+    }
+    .absolute {
+        width: 100%;
     }
 }
