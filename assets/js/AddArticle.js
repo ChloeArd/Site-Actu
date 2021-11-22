@@ -22,6 +22,7 @@ export const AddArticle = function (author, title, image, content, date) {
 
         // contains the information
         let containerInfo = document.createElement("div");
+        containerInfo.id = "containerInfo" + x;
         containerInfo.classList = "containerInfo";
         containerArt.append(containerInfo);
 
@@ -43,22 +44,32 @@ export const AddArticle = function (author, title, image, content, date) {
 
         // contains image
         let containerImage = document.createElement("div");
+        containerImage.id = "containerImage" + x;
         containerImage.classList = "containerImage";
         containerArt.append(containerImage);
 
         // create a image
         let image = document.createElement("img");
+        image.id = "image" + x;
         image.src = this.image;
         image.alt = this.title;
         containerImage.append(image);
 
         let idClick = document.getElementById("containerArt" + x);
+
+        // display an article on the same page
         idClick.addEventListener("click", function () {
-            // Faire que la ou je clique prenne tous l'ecran grace a un absolute et cache les autre articles en prenant toutes la page
+            let y = this.id;
+            let recupId = y.replace("containerArt", "");
 
-            idClick.classList = "containerArt absolute";
-
-            alert("Tu as cliqué sur un article");
+            for (let i = 0; i < 20; i++) {
+                document.getElementById("containerArt" + i).style.display = "none";
+                document.getElementById("containerArt" + recupId).style.display = "flex";
+                document.getElementById("containerArt" + recupId).classList = "containerArt absolute flexColumnR";
+                document.getElementById("containerInfo" + recupId).classList += " width100";
+                document.getElementById("containerImage" + recupId).classList += " width100";
+                document.getElementById("image" + recupId).classList = "image1";
+            }
         });
 
         x++;
