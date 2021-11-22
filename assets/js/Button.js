@@ -48,6 +48,9 @@ export const Button = function (theme_dark, theme) {
                     if (document.getElementById("title" + i)) {
                         document.getElementById("title" + i).classList = "title ";
                     }
+                    if (document.getElementById("containerArt" + i).classList['value'] === "containerArt absolute flexColumnR black"){
+                        document.getElementById("containerArt" + i).classList = "containerArt absolute flexColumnR";
+                    }
                 }
             }
             else {
@@ -58,6 +61,10 @@ export const Button = function (theme_dark, theme) {
                 for (let i = 0; i < 20; i++) {
                     if (document.getElementById("title" + i)) {
                         document.getElementById("title" + i).classList = "title " + theme_dark;
+                    }
+                    console.log(document.getElementById("containerArt" + i).classList['value']);
+                    if (document.getElementById("containerArt" + i).classList['value'] === "containerArt absolute flexColumnR"){
+                        document.getElementById("containerArt" + i).classList = "containerArt absolute flexColumnR black";
                     }
                 }
             }
