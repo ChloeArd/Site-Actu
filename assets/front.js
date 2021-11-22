@@ -8,4 +8,5 @@ let theme = getCookie('theme');
 let button = new Button(dark_theme_class, theme);
 
 button.mode();
+button.home();
 button.articles();

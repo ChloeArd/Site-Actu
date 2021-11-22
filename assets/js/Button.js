@@ -66,6 +66,19 @@ export const Button = function (theme_dark, theme) {
         });
     };
 
+    // home page button
+    this.home = function () {
+        let home = document.createElement("button");
+        home.id = "home";
+        home.classList = "button ";
+        home.innerHTML = "<i class=\"fas fa-home\"></i>";
+        document.getElementById("containerButton").appendChild(home);
+
+        home.addEventListener("click", function () {
+            location.reload();
+        });
+    }
+
     // displays 20 articles of a API
     this.articles = function () {
         let url = "http://api.mediastack.com/v1/news?access_key=6686f18aa11ae791d64637c0b67123f1&languages=fr";
