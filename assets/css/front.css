@@ -35,6 +35,7 @@ button {
     margin: 10px;
     border: none;
     width: 5%;
+    color: black;
 }
 
 input, textarea {
@@ -120,7 +121,7 @@ h1 {
 
 .absolute {
     margin: 0;
-    width: 70%;
+    width: 100%;
     top: 100px;
     position : absolute;
     background-color: white;
@@ -184,7 +185,7 @@ h1.title.dark-theme{
     img {
         width: 80%;
     }
-    body{
+    body {
         width: 90%;
         margin: 0;
     }
