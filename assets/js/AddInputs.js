@@ -39,3 +39,34 @@ export const AddInputs = function () {
         button.articles();
     };
 }
+
+/*
+ // display a input for add a article
+    this.add = function () {
+        let add = document.createElement("button");
+        add.id = "addInput"
+        add.classList = "button ";
+        add.innerHTML = "<i class=\"fas fa-plus\"></i>";
+        document.getElementById("containerButton").appendChild(add);
+
+        let click = 0;
+        document.getElementById("addInput").addEventListener("click", function () {
+            let addArticle = new AddInputs();
+            if (click === 0) {
+                // create inputs
+                addArticle.createInputs();
+                click++;
+            }
+            else if (click === 1){
+                // remove the inputs
+                document.getElementById("containerAdd").style.display = "none";
+                click++;
+            }
+            else {
+                // show the inputs
+                document.getElementById("containerAdd").style.display = "flex";
+                click = 1;
+            }
+        });
+    };
+ */

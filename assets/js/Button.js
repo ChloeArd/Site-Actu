@@ -66,35 +66,6 @@ export const Button = function (theme_dark, theme) {
         });
     };
 
-    // display a input for add a article
-    this.add = function () {
-        let add = document.createElement("button");
-        add.id = "addInput"
-        add.classList = "button ";
-        add.innerHTML = "<i class=\"fas fa-plus\"></i>";
-        document.getElementById("containerButton").appendChild(add);
-
-        let click = 0;
-        document.getElementById("addInput").addEventListener("click", function () {
-            let addArticle = new AddInputs();
-            if (click === 0) {
-                // create inputs
-                addArticle.createInputs();
-                click++;
-            }
-            else if (click === 1){
-                // remove the inputs
-                document.getElementById("containerAdd").style.display = "none";
-                click++;
-            }
-            else {
-                // show the inputs
-                document.getElementById("containerAdd").style.display = "flex";
-                click = 1;
-            }
-        });
-    };
-
     // displays 20 articles of a API
     this.articles = function () {
         let url = "http://api.mediastack.com/v1/news?access_key=6686f18aa11ae791d64637c0b67123f1&languages=fr";
