@@ -10,3 +10,7 @@ let button = new Button(dark_theme_class, theme);
 button.mode();
 button.home();
 button.articles();
+
+navigator.serviceWorker.register("../../service-worker.js").then(function () {
+    console.log("ok");
+})
