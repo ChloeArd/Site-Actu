@@ -3,7 +3,7 @@ import {Button} from "./js/Button";
 import {getCookie} from "./js/function";
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service-worker.js').then(function(reg) {
+    navigator.serviceWorker.register('~service-worker.js').then(function(reg) {
 
         if(reg.installing) {
             console.log('Service worker installing');
