@@ -2,7 +2,7 @@ import "./css/front.css";
 import {Button} from "./js/Button";
 import {getCookie} from "./js/function";
 
-if ('serviceWorker' in navigator) {
+/*if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('../service-worker.js').then(function(reg) {
 
         if(reg.installing) {
@@ -19,7 +19,7 @@ if ('serviceWorker' in navigator) {
         // registration failed
         console.log('Registration failed with ' + error);
     });
-}
+}*/
 
 
 let dark_theme_class = 'dark-theme';
